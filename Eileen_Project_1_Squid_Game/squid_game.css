@@ -8,6 +8,7 @@
   background: url("redlightgreenlight.png");
   background-repeat: no-repeat;
   position: absolute;
+  image-rendering: high-quality;
 }
 /* .wrapper {
   background-image: url("redlightgreenlight.png");
@@ -67,7 +68,8 @@
   height: 31px;
   width: 97px;
   position: absolute;
-  left: 90%;
+  left: 62%;
+  top: 30%;
   color: maroon;
   text-shadow: 2px 1px black;
   font-weight: bold;
@@ -77,25 +79,23 @@
 
 button {
   height: 50px;
-  width: 80%;
+  width: 60%;
   margin-bottom: 20px;
+  border-radius: 25px;
+  top: 88%;
+  left: 20%;
+  position: absolute;
 }
 
 #start {
   font-weight: bold;
-  position: absolute;
-  top: 700px;
-  left: 5%;
-  border-radius: 25px;
 }
 
 .finishingline {
   height: 2px;
-  width: 100%;
+  width: 60%;
+  left: 33%;
   background-color: #cd5c5c;
   position: absolute;
-  top: 455px;
+  top: 53.5%;
 }
-
-/* .pixelart {
-  image-rendering: pixelated; */

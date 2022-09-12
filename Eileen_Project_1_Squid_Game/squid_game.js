@@ -38,8 +38,8 @@ function animate() {
     player.height,
     player.x,
     player.y,
-    player.height,
-    player.width
+    33,
+    27
   );
 }
 
@@ -55,7 +55,7 @@ window.addEventListener("keydown", function (e) {
   if (e.key === "ArrowUp" && player.y > 40) {
     player.y -= player.speed;
     player.frameY = 3;
-  } else if (e.key === "ArrowDown" && player.x > 0) {
+  } else if (e.key === "ArrowDown") {
     player.y += player.speed;
     player.frameY = 0;
   } else if (e.key === "ArrowLeft") {
@@ -66,7 +66,20 @@ window.addEventListener("keydown", function (e) {
     player.frameY = 2;
   }
   animate();
+  handlePlayerFrame();
 });
+
+function handlePlayerFrame() {
+  if (player.frameX < 3) player.frameX++;
+  else player.frameX = 0;
+}
+
+function gameOver() {
+  if (player.y > 40) {
+    document.getElementsByClassName("win").style.display = "block";
+  }
+}
+gameOver();
 
 //Timer countdown
 var counter = 0;
