@@ -132,6 +132,7 @@ function removestart(e) {
 //Display Win or Game over
 function gameOver() {
   let gameOver = document.getElementById("gameOver");
+  let restart = document.getElementById("restart");
   if (player.y === 100 && timeLeft !== 0) {
     const win = document.getElementById("win");
     win.style.display = "block";
@@ -139,13 +140,19 @@ function gameOver() {
     (timeLeft === 0 && player.y !== 100) ||
     (activeLight === 0 && keyPressed === true && player.y !== 100)
   ) {
-    console.log(activeLight);
     gameOver.style.display = "block";
-    counter = 0;
+    restart.style.display = "block";
   }
 }
+
+//Refreshes page
+function refreshPage() {
+  window.location.reload();
+}
+
 //Start game
 document.querySelector("#start").addEventListener("click", countdown);
 document.querySelector("#start").addEventListener("click", removestart);
 document.querySelector("#start").addEventListener("click", startTraffic);
 document.querySelector("#start").addEventListener("click", animate);
+document.querySelector("#restart").addEventListener("click", refreshPage);

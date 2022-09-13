@@ -87,12 +87,12 @@ button {
   top: 88%;
   left: 20%;
   position: absolute;
-}
-
-#start {
   font-weight: bold;
 }
 
+#restart {
+  display: none;
+}
 .finishingline {
   height: 2px;
   width: 60%;
