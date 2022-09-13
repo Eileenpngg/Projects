@@ -5,15 +5,15 @@ const width = 500;
 
 const canvas = document.getElementById("canvas1");
 const ctx = canvas.getContext("2d");
-canvas.width = 800;
-canvas.height = 500;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 //Create character
 //x:, y: current position x-axis,y-axis; frameX, frameY: frame to be cropped;
 let player = {
   x: 400,
-  y: 100,
-  width: 51.25,
+  y: 200,
+  width: 53,
   height: 77,
   frameX: 0,
   frameY: 0,
@@ -38,11 +38,12 @@ function animate() {
     player.height,
     player.x,
     player.y,
-    33,
-    27
+    26,
+    22
   );
 }
 
+let keyPressed = false;
 //Character moves based on keys pressed
 window.addEventListener("keydown", function (e) {
   ctx.clearRect(
@@ -52,21 +53,26 @@ window.addEventListener("keydown", function (e) {
     player.y + player.height
   );
 
-  if (e.key === "ArrowUp" && player.y > 40) {
+  if (e.key === "ArrowUp" && player.y > 100) {
     player.y -= player.speed;
     player.frameY = 3;
+    keyPressed = true;
   } else if (e.key === "ArrowDown") {
     player.y += player.speed;
     player.frameY = 0;
+    keyPressed = true;
   } else if (e.key === "ArrowLeft") {
     player.x -= player.speed;
     player.frameY = 1;
+    keyPressed = true;
   } else if (e.key === "ArrowRight") {
     player.x += player.speed;
     player.frameY = 2;
+    keyPressed = true;
   }
   animate();
   handlePlayerFrame();
+  gameOver();
 });
 
 function handlePlayerFrame() {
@@ -74,16 +80,9 @@ function handlePlayerFrame() {
   else player.frameX = 0;
 }
 
-function gameOver() {
-  if (player.y > 40) {
-    document.getElementsByClassName("win").style.display = "block";
-  }
-}
-gameOver();
-
 //Timer countdown
-var counter = 0;
-const timeLeft = 30;
+let counter = 0;
+let timeLeft = 30;
 const timer = document.querySelector(".timer");
 
 function countdown() {
@@ -95,28 +94,20 @@ function countdown() {
     if (counter === timeLeft) {
       clearInterval(interval);
       counter = 0;
+      timeLeft = 0;
     }
   }
-  const interval = setInterval(timeIt, 1000);
+  const interval = setInterval(timeIt, 2000);
 }
 
-//Removes start button
-function removestart(e) {
-  document.querySelector("#start").remove();
-}
-
-document.querySelector("#start").addEventListener("click", countdown);
-document.querySelector("#start").addEventListener("click", removestart);
-document.querySelector("#start").addEventListener("click", startTraffic);
-document.querySelector("#start").addEventListener("click", animate);
-
-//Traffic light interval time
+//Traffic light change
 const lights = document.querySelectorAll(".light");
-let activeLight = 2;
+let activeLight = 0;
 
 function changeLight() {
   lights[activeLight].className = "light";
   activeLight--;
+  console.log(activeLight);
 
   if (activeLight < 0) {
     activeLight = 2;
@@ -126,22 +117,35 @@ function changeLight() {
 
   currentLight.classList.add(currentLight.getAttribute("color"));
 }
-
+// Interval between light change
 function startTraffic() {
   setInterval(() => {
     changeLight();
   }, 1000);
 }
 
-// window.addEventListener("keyup", (event) => {
-//   switch (event.key) {
-//     case "ArrowUp":
-//       character.style.marginTop =
-//         parseInt(character.style.marginTop) - 10 + "px";
-//       break;
-//     case "ArrowDown":
-//       character.style.MarginTop =
-//         parseInt(character.style.marginTop) + 10 + "px";
-//       break;
-//   }
-// });
+//Removes start button
+function removestart(e) {
+  document.querySelector("#start").remove();
+}
+
+//Display Win or Game over
+function gameOver() {
+  let gameOver = document.getElementById("gameOver");
+  if (player.y === 100 && timeLeft !== 0) {
+    const win = document.getElementById("win");
+    win.style.display = "block";
+  } else if (
+    (timeLeft === 0 && player.y !== 100) ||
+    (activeLight === 0 && keyPressed === true && player.y !== 100)
+  ) {
+    console.log(activeLight);
+    gameOver.style.display = "block";
+    counter = 0;
+  }
+}
+//Start game
+document.querySelector("#start").addEventListener("click", countdown);
+document.querySelector("#start").addEventListener("click", removestart);
+document.querySelector("#start").addEventListener("click", startTraffic);
+document.querySelector("#start").addEventListener("click", animate);

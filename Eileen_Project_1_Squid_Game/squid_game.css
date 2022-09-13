@@ -8,6 +8,7 @@
   background: url("redlightgreenlight.png");
   background-repeat: no-repeat;
   position: absolute;
+  display: block;
   image-rendering: high-quality;
 }
 /* .wrapper {
@@ -24,6 +25,7 @@
   height: 30px;
   width: 30px;
   position: relative;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .light.red {
@@ -69,7 +71,7 @@
   width: 97px;
   position: absolute;
   left: 62%;
-  top: 30%;
+  top: 28%;
   color: maroon;
   text-shadow: 2px 1px black;
   font-weight: bold;
@@ -97,5 +99,23 @@ button {
   left: 33%;
   background-color: #cd5c5c;
   position: absolute;
-  top: 53.5%;
+  top: 49%;
+}
+
+#win {
+  position: absolute;
+  display: none;
+  color: red;
+  font-size: 100px;
+  top: 15%;
+  left: 40%;
+}
+
+#gameOver {
+  position: absolute;
+  display: none;
+  color: red;
+  font-size: 100px;
+  top: 15%;
+  left: 35%;
 }
