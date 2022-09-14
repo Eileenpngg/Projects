@@ -133,7 +133,11 @@ function removestart(e) {
 function gameOver() {
   let gameOver = document.getElementById("gameOver");
   let restart = document.getElementById("restart");
-  if (player.y === 100 && timeLeft !== 0) {
+  if (
+    player.y === 100 &&
+    timeLeft !== 0 &&
+    gameOver.style.display !== "block"
+  ) {
     const win = document.getElementById("win");
     win.style.display = "block";
   } else if (
