@@ -72,10 +72,10 @@
   position: absolute;
   left: 62%;
   top: 28%;
-  color: maroon;
   text-shadow: 2px 1px black;
   font-weight: bold;
-  font-family: "Orbitron", sans-serif;
+  font-family: "Silkscreen", cursive;
+  color: red;
   font-size: 25px;
 }
 

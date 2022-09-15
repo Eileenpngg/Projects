@@ -13,8 +13,10 @@ canvas.height = window.innerHeight;
 let player = {
   x: 400,
   y: 200,
-  width: 53,
-  height: 77,
+  // width: 53,
+  // height: 77,
+  width: 32,
+  height: 32,
   frameX: 0,
   frameY: 0,
   speed: 5,
@@ -23,8 +25,7 @@ let player = {
 
 const character = new Image();
 character.src =
-  "https://preview.redd.it/dbtt91sukiy71.png?width=205&format=png&auto=webp&s=b5306ee592e16a942ca2db7ed94e19180a1949cc";
-
+  "https://rpgmaker.net/media/content/users/59811/locker/squid_game_A.png";
 function drawSprite(Img, sX, sY, sW, sH, dX, dY, dW, dH) {
   ctx.drawImage(Img, sX, sY, sW, sH, dX, dY, dW, dH);
 }
@@ -38,8 +39,8 @@ function animate() {
     player.height,
     player.x,
     player.y,
-    26,
-    22
+    45,
+    40
   );
 }
 
@@ -76,7 +77,7 @@ window.addEventListener("keydown", function (e) {
 });
 
 function handlePlayerFrame() {
-  if (player.frameX < 3) player.frameX++;
+  if (player.frameX < 2) player.frameX++;
   else player.frameX = 0;
 }
 
@@ -142,7 +143,7 @@ function gameOver() {
     win.style.display = "block";
   } else if (
     (timeLeft === 0 && player.y !== 100) ||
-    (activeLight === 0 && keyPressed === true && player.y !== 100)
+    (activeLight === 0 && keyPressed === true && win.style.display !== "block")
   ) {
     gameOver.style.display = "block";
     restart.style.display = "block";
