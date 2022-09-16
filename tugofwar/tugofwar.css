@@ -53,6 +53,7 @@ button {
   display: none;
   color: red;
   font-size: 100px;
+  font-family: "Bungee Spice";
   top: 15%;
   left: 40%;
 }
@@ -62,6 +63,11 @@ button {
   display: none;
   color: red;
   font-size: 100px;
+  font-family: "Bungee Spice";
   top: 15%;
   left: 35%;
+}
+
+#restart {
+  display: none;
 }

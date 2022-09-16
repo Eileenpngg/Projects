@@ -13,8 +13,6 @@ canvas.height = window.innerHeight;
 let player = {
   x: 400,
   y: 200,
-  // width: 53,
-  // height: 77,
   width: 32,
   height: 32,
   frameX: 0,
@@ -83,7 +81,7 @@ function handlePlayerFrame() {
 
 //Timer countdown
 let counter = 0;
-let timeLeft = 30;
+let timeLeft = 10;
 const timer = document.querySelector(".timer");
 
 function countdown() {
@@ -134,6 +132,7 @@ function removestart(e) {
 function gameOver() {
   let gameOver = document.getElementById("gameOver");
   let restart = document.getElementById("restart");
+  let nextLevel = document.getElementById("nextLevel");
   if (
     player.y === 100 &&
     timeLeft !== 0 &&
@@ -141,6 +140,7 @@ function gameOver() {
   ) {
     const win = document.getElementById("win");
     win.style.display = "block";
+    nextLevel.style.display = "block";
   } else if (
     (timeLeft === 0 && player.y !== 100) ||
     (activeLight === 0 && keyPressed === true && win.style.display !== "block")

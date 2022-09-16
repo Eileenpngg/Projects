@@ -70,8 +70,8 @@
   height: 31px;
   width: 97px;
   position: absolute;
-  left: 62%;
-  top: 28%;
+  left: 61.5%;
+  top: 27.5%;
   text-shadow: 2px 1px black;
   font-weight: bold;
   font-family: "Silkscreen", cursive;
@@ -93,6 +93,10 @@ button {
 #restart {
   display: none;
 }
+
+#nextLevel {
+  display: none;
+}
 .finishingline {
   height: 2px;
   width: 60%;
@@ -107,7 +111,8 @@ button {
   display: none;
   color: red;
   font-size: 100px;
-  top: 15%;
+  font-family: "Bungee Spice";
+  top: 10%;
   left: 40%;
 }
 
@@ -116,6 +121,7 @@ button {
   display: none;
   color: red;
   font-size: 100px;
-  top: 15%;
+  font-family: "Bungee Spice", cursive;
+  top: 10%;
   left: 35%;
 }
