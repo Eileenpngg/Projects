@@ -13,7 +13,8 @@ canvas.height = window.innerHeight;
 let player = {
   x: 400,
   y: 200,
-  width: 32,
+  width: 32, //sprite sheet width divide by the number of horizontal sprites
+  height: 32, //sprite sheet height divide by the number of vertical sprites
   height: 32,
   frameX: 0,
   frameY: 0,
@@ -101,7 +102,7 @@ function countdown() {
 
 //Traffic light change
 const lights = document.querySelectorAll(".light");
-let activeLight = 0;
+let activeLight = 0; //red light
 
 function changeLight() {
   lights[activeLight].className = "light";
@@ -109,7 +110,7 @@ function changeLight() {
   console.log(activeLight);
 
   if (activeLight < 0) {
-    activeLight = 2;
+    activeLight = 2; //green light
   }
 
   const currentLight = lights[activeLight];

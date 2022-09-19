@@ -102,10 +102,11 @@ window.addEventListener("keydown", function (e) {
 //Elements that move when pulling starts
 function move() {
   //Moves rope to the right
-  let ropeLeft = getCssProperty(rope, "left");
-  let newRope = Number(ropeLeft.slice(0, -2));
-  newRope = newRope + 20;
-  rope.style.left = newRope + "px";
+  let ropeLeft = getCssProperty(rope, "left"); //returns a string
+  let newRope = Number(ropeLeft.slice(0, -2)); //removes last character "px" and convert to number
+  newRope = newRope + 20; //add number of px to move
+  rope.style.left = newRope + "px"; //add back the px
+
   //Moves character together with the rope
   ctx.clearRect(
     character1var.x,
