@@ -2,23 +2,19 @@
   box-sizing: border-box;
 }
 
-#canvas1 {
-  width: 100vw;
-  height: 200vw;
+body{
   background: url("redlightgreenlight.png");
+  overflow: hidden;
+}
+#canvas1 {
+  width: 120vw;
+  height: 70vw;
   background-repeat: no-repeat;
   position: absolute;
   display: block;
   image-rendering: high-quality;
+  overflow: hidden;
 }
-/* .wrapper {
-  background-image: url("redlightgreenlight.png");
-  background-size: cover;
-  height: 1000px;
-  width: 100vw;
-  background-position: no-repeat;
-  position: relative;
-} */
 
 .light {
   border-radius: 50%;
@@ -70,8 +66,8 @@
   height: 31px;
   width: 97px;
   position: absolute;
-  left: 61.5%;
-  top: 27.5%;
+  left: 61%;
+  top: 30.2%;
   text-shadow: 2px 1px black;
   font-weight: bold;
   font-family: "Silkscreen", cursive;
