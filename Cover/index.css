@@ -1,0 +1,67 @@
+body {
+  background-color: black;
+}
+
+.card {
+  height: 250px;
+  width: 450px;
+  color: white;
+  background-color: burlywood;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 30%;
+  left: 35%;
+}
+.circle {
+  width: 75px;
+  height: 75px;
+  border: 0.4em solid black;
+  border-radius: 50%;
+}
+.triangle {
+  margin-right: 10px;
+  border-left: 37.5px solid transparent;
+  border-right: 37.5px solid transparent;
+  border-bottom: 75px solid black;
+}
+.triangle {
+  border-left: 41px solid transparent;
+  border-right: 41px solid transparent;
+  border-bottom: 82px solid black;
+  position: relative;
+}
+.triangle:after {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: -34px;
+  border-left: 34px solid transparent;
+  border-right: 34px solid transparent;
+  border-bottom: 68px solid burlywood;
+}
+.square {
+  width: 75px;
+  height: 75px;
+  border: 0.4em solid black;
+}
+
+h1 {
+  font-family: "Aref Ruqaa Ink", serif;
+  color: white;
+  position: absolute;
+  top: 20%;
+  left: 40%;
+}
+
+button {
+  background-color: #cd5c5c;
+  border-radius: 25%;
+  position: absolute;
+  height: 50px;
+  width: 40%;
+  border-radius: 25px;
+  top: 75%;
+  left: 32%;
+}
